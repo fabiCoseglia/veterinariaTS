@@ -1,22 +1,16 @@
-import { Dispatch, FormEvent, SetStateAction } from "react";
+import { FormEvent, useContext } from "react";
 import { useForm } from "../hooks/useForm";
 import { InputForm } from "./input-form";
+import { Paciente, PacientesContext } from "../context/PacientesContext";
 
-export interface Paciente {
-  id: string;
-  mascota: string;
-  duenio: string;
-  email: string;
-  raza: string;
-}
+
 
 type FormValues = Omit<Paciente, "id">;
 
-export const Formulario = ({
-  setPacientes,
-}: {
-  setPacientes: Dispatch<SetStateAction<Paciente[]>>;
-}) => {
+export const Formulario = () => {
+
+  const {agregarPaciente} = useContext(PacientesContext)
+
   const { formValues, handleChange } = useForm<FormValues>({
     mascota: "",
     duenio: "",
@@ -32,9 +26,8 @@ export const Formulario = ({
       ...formValues,
     };
 
-    setPacientes((prev:Paciente[])=>{
-      return [...prev,newPaciente]
-    });
+    agregarPaciente(newPaciente);
+    
   };
 
   return (

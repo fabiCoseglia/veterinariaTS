@@ -1,7 +1,9 @@
-import { Paciente } from "./formulario"
+import { useContext } from "react"
 import { ListadoCard } from "./listado-card"
+import { PacientesContext } from "../context/PacientesContext"
 
-export const ListadoPacientes = ({pacientes}: {pacientes:Paciente[]}) => {
+export const ListadoPacientes = () => {
+  const {pacientes} = useContext(PacientesContext)
   return (
     <div className="lg:w-1/2" >
       <h2 className="font-bold text-3xl mb-10 text-center">Listado de <span className="text-indigo-700">pacientes</span></h2>
