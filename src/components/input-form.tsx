@@ -38,7 +38,7 @@ export const InputForm = ({
         className={`border w-full p-2 mt-2 placeholder-gray-400`}
         onChange={onChange}
         />
-       <p className={`w-full p-2 mt-2 placeholder-gray-500 ${error ? 'border-red-700' : 'border-gray'}`}>{error}</p>
+       <p className={`w-full p-2 mt-2 placeholder-gray-500 text-red-500 ${error ? 'border-red-700' : 'border-gray'}`}>{error}</p>
     </div>
   )
 }
